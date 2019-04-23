@@ -1,8 +1,8 @@
 # config
 menu:
   home: ' '
-  articles: /articles
-  author: /author
+  articles: articles
+  author: author
 
 # Content
 excerpt_link: Read more
