@@ -23,6 +23,8 @@ tocファイルの一部
 ```
 1列目はファイルのサイズで3列目は名前。
 
+&nbsp;
+
 ## 解凍してみる
 さてとこれは簡単そうだな。
 
@@ -30,8 +32,8 @@ tocファイルの一部
 // C#
 var size = Convert.ToInt32(row.Substring(0, 12).Trim(), 16);
 var name = row.Substring(16);
-byte[] bytes = new byte[size];
-int read = stream.Read(bytes, 0, size);
+var bytes = new byte[size];
+stream.Read(bytes, 0, size);
 var dir = new FileInfo(name).Directory;
 if (dir != null)
 {
@@ -43,6 +45,8 @@ File.WriteAllBytes(name, bytes);
 
 と思ったらだめだった。
 解凍されたほとんどのファイルは開かない。
+
+&nbsp;
 
 ## 間違い探し
 
@@ -61,6 +65,8 @@ winhexでByte単位でよく見たらファイルの間に確かに`00`が追加
 
 …
 
+&nbsp;
+
 ## とりあえず空白をskipしよう
 
 一つのファイルを読み込んだ後、`00`を全部skipsして、初めて`00`ではないByteから次のファイルの読み込みを始めるというのはどうだろう。
@@ -71,7 +77,9 @@ winhexでByte単位でよく見たらファイルの間に確かに`00`が追加
 
 一体どうやって`00`の数を決めたんだ？？
 
-## そういう時はlogしましょう
+&nbsp;
+
+## こういう時はlogしよう
 
 とりあえずlog出してskipした`00`の数を見る。
 
@@ -113,8 +121,8 @@ namespace dat_unzipper
                 var size = Convert.ToInt32(row.Substring(0, 12).Trim(), 16);
                 var name = row.Substring(16);
                 Console.WriteLine(string.Format("Reading {0} of {1} bytes...", name, size));
-                byte[] bytes = new byte[size];
-                int read = stream.Read(bytes, 0, size);
+                var bytes = new byte[size];
+                var read = stream.Read(bytes, 0, size);
                 if (read == 0)
                 {
                     throw new EndOfStreamException();
@@ -132,7 +140,7 @@ namespace dat_unzipper
                 {
                     continue;
                 }
-                byte[] skip = new byte[blankCount];
+                var skip = new byte[blankCount];
                 stream.Read(skip, 0, blankCount);
                 Console.WriteLine(string.Format("Skipped {0} blank byte for {1} bytes.", blankCount, size));
             }
@@ -142,6 +150,8 @@ namespace dat_unzipper
 }
 
 ```
+
+&nbsp;
 
 ## 復元しろって？？
 
@@ -196,7 +206,7 @@ namespace dat_zipper
                 tocWriter.Write(' ');
                 tocWriter.Write(name);
                 tocWriter.Write("\n");
-                byte[] bytes = new byte[size];
+                var bytes = new byte[size];
                 datWriter.Write(file);
                 var suffixBlankCount = 4 - size % 4;
                 if (suffixBlankCount < 4)
