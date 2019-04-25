@@ -26,7 +26,7 @@ tocファイルの一部
 ## 解凍してみる
 さてとこれは簡単そうだな。
 
-```c#
+```csharp
 // C#
 var size = Convert.ToInt32(row.Substring(0, 12).Trim(), 16);
 var name = row.Substring(16);
@@ -91,7 +91,7 @@ winhexでByte単位でよく見たらファイルの間に確かに`00`が追加
 
 コード張るわ。
 
-```c#
+```csharp
 // C#
 using System;
 using System.IO;
@@ -156,7 +156,7 @@ winhexで確認したほうが確実。
 
 以下コード。
 
-```c#
+```csharp
 // C#
 using System;
 using System.IO;
@@ -217,4 +217,4 @@ namespace dat_zipper
 }
 ```
 
-おつかれさまでした！
+はいおつかれさまでした！
