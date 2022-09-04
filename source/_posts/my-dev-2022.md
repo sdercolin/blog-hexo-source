@@ -7,6 +7,8 @@ intro: 2022年9月の時点で開発したものをまとめます。
 
 2022年9月の時点で開発したものをまとめます。
 
+&nbsp;
+
 ### UtaFormatix
 
 歌声合成ソフトウェアのプロジェクトファイルを変換するツールです。
@@ -20,11 +22,15 @@ Repository: https://github.com/sdercolin/utaformatix3
 
 Release: https://sdercolin.github.io/utaformatix3/
 
+&nbsp;
+
 ### UtaFormatix-Data
 
 UtaFormatix の内部データ形式を公開したものです。
 
 Repository: https://github.com/sdercolin/utaformatix-data
+
+&nbsp;
 
 ### HARMOLOID
 
@@ -40,6 +46,8 @@ Core library repository: https://github.com/sdercolin/harmoloid-core-kt
 
 Release: https://sdercolin.github.io/harmoloid2/
 
+&nbsp;
+
 ### vLabeler
 
 音声データのラベリングアプリです。
@@ -54,6 +62,8 @@ Repository / Release: https://github.com/sdercolin/vlabeler
 
 vLabeler / UtaFormatix / HARMOLOID に関する問い合わせ・討論などはこちらの [Discord サーバー](https://discord.gg/TyEcQ6P73y)
 をご参加ください。
+
+&nbsp;
 
 ### その他
 
