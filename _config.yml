@@ -80,7 +80,7 @@ theme: clexy
 deploy:
   type: git
   branch: master
-  repo: https://github.com/sdercolin/blog-hexo.git
+  repo: git@github.com:sdercolin/blog-hexo.git
 
 prism_plugin:
   mode: 'preprocess'    # realtime/preprocess
